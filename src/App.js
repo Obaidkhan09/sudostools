@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 import './App.css';
+//Material Imports:
 
+/** @jsxImportSource @emotion/react */
+import AppBarDrawer from './components/AppBarDrawer.component';
+import SideDrawer from "./components/SideDrawer.component"
+//CONTEXT API\
+//STYLING:
+//const colorBlue = "white";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <div style={{ height: "500px" }}>
+    //   <h1 css={ css`
+    //   padding-top: 32px;
+    //   color : ${colorBlue};
+    //   font-size : 24px;
+    //   `} className={classes.testing}>Hello to GREEN..!!</h1>
+    // </div>
+      <Router>
+        <AppBarDrawer />
+        <SideDrawer />
+      </Router >
   );
 }
 

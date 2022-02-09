@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.onHover:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.04) ;
+}
