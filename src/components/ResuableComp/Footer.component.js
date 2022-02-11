@@ -15,8 +15,7 @@ export default function Footer() {
     
     const screenSize = () => {
         if (window.innerWidth < 600) {
-            setdrawerWidth(0);
-            console.log(drawerWidth);
+            setdrawerWidth(10);
         }
         else setdrawerWidth(270);
     }

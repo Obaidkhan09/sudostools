@@ -49,8 +49,8 @@ export default function AppBarDrawer() {
 
     return (
         <>
-            <AppBar position="sticky" style={{ backgroundColor: "rgb(42,42,42)", zIndex: 100000, overflow: "hidden" }} elevation={0}>
-                <Container maxWidth="xxl">
+            <AppBar className="" position="sticky" style={{ backgroundColor: "rgb(42,42,42)", zIndex: 100000, overflow: "hidden" }} elevation={0}>
+                <Container maxWidth="xxl" className="imgPaddingLeft">
                     <Toolbar disableGutters style={{}}>
 
 
@@ -72,7 +72,7 @@ export default function AppBarDrawer() {
                             </IconButton>
                         </Box>
                         <Link to="/" component="">
-                            <img src={logo} alt="Logo" width="58" css={css`padding-right: 8px; padding-left: 0px;`} />
+                            <img src={logo} alt="Logo" width="58" css={css`padding-right: 8px; padding-left: 0px; padding-top : 6px;`} />
                         </Link>
                         <Typography
                             variant="h6"
@@ -90,7 +90,7 @@ export default function AppBarDrawer() {
                             sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}
                             fontFamily="Roboto"
                             fontSize="1rem"
-                            style={{ paddingLeft: "72px" }}
+                            style={{ paddingLeft: "80px" }}
                         >
                             Free online tools for developers
                         </Typography>
@@ -101,6 +101,7 @@ export default function AppBarDrawer() {
             </AppBar>
             <div>
                 <SwipeableDrawer
+                    className="SidebarDrawer"
                     anchor="left"
                     open={state}
                     onClose={toggleDrawer(false)}

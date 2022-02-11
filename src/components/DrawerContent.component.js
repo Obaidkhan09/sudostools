@@ -1,9 +1,4 @@
 import React, { useState } from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { formattersDict, converters, checkers, coders } from './constants/Constants';
 import { Link } from 'react-router-dom';
 
@@ -13,18 +8,9 @@ import { useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
 import Collapse from '@mui/material/Collapse';
-import HomeIcon from '@mui/icons-material/Home';
-import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
-import AlbumIcon from '@mui/icons-material/Album';
-import WbIncandescentIcon from '@mui/icons-material/WbIncandescent';
-import LinearScaleIcon from '@mui/icons-material/LinearScale';
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-import ThumbsUpDownOutlinedIcon from '@mui/icons-material/ThumbsUpDownOutlined';
 
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -38,42 +24,7 @@ import '../index.css'
 
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-    },
-    appBar: {
-        // transition: theme.transitions.create(['margin', 'width'], {
-        //   easing: theme.transitions.easing.sharp,
-        //   duration: theme.transitions.duration.leavingScreen,
-        // }),
-        backgroundColor: "#343a40",
-        borderColor: "#343a40",
-    },
-    appBarShift: {
-        // width: `calc(100% - ${drawerWidth}px)`,
-        // marginLeft: drawerWidth,
-        // transition: theme.transitions.create(['margin', 'width'], {
-        //   easing: theme.transitions.easing.easeOut,
-        //   duration: theme.transitions.duration.enteringScreen,
-        // }),
-        zIndex: 1222,
-        backgroundColor: "#343a40",
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-    },
-    closeButton: {
-        display: 'none',
-        marginRight: 16,
-        marginLeft: -12,
-        color: '#fff',
-    },
-    hide: {
-        display: 'none',
-    },
-    show: {
-        display: 'block',
-    },
+
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
@@ -90,22 +41,6 @@ const useStyles = makeStyles((theme) => ({
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
         backgroundColor: "#343a40",
-    },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        marginLeft: -drawerWidth,
-    },
-    contentShift: {
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-        marginLeft: 0,
     },
     nested: {
         paddingLeft: theme.spacing(4),
@@ -185,19 +120,13 @@ export default function DrawerContent() {
                         <ListItemText primary="Navigator" />
                     </ListItem>
                     <ListItem button onClick={FormatterOpen}>
-                        <ListItemIcon>
-                            <AddCircleOutlineOutlinedIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Formatter" />
+                        <ListItemText primary="Formatters" style={{ color : "3E3E3E" }} />
                         {Add ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                     <Collapse in={Add} timeout="auto" unmountOnExit>
                         {Object.entries(formattersDict).map(([path, str]) => (
                             <List key={str} component="div" disablePadding>
                                 <ListItem key={str} button inset="true" className={classes.nested} component={Link} to={path}>
-                                    <ListItemIcon>
-                                        <TurnedInNotIcon />
-                                    </ListItemIcon>
                                     <ListItemText primary={str} />
                                 </ListItem>
                             </List>
@@ -205,9 +134,6 @@ export default function DrawerContent() {
                     </Collapse>
                     <ListItem button onClick={ConverterOpen}
                     >
-                        <ListItemIcon>
-                            <AddCircleOutlineOutlinedIcon />
-                        </ListItemIcon>
                         <ListItemText primary="Converters" />
                         {ConverterView ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
@@ -215,17 +141,11 @@ export default function DrawerContent() {
                         {converters.map((item, index) => (
                             <List key={index} component="div" disablePadding>
                                 <ListItem key={index} button inset="true" className={classes.nested}>
-                                    <ListItemIcon>
-                                        <TurnedInNotIcon />
-                                    </ListItemIcon>
                                     <ListItemText primary={item} />
                                 </ListItem>
                             </List>
                         ))}
                         <ListItem style={{ paddingLeft: "32px" }} button onClick={coder1Open}>
-                            <ListItemIcon>
-                                <AddCircleOutlineOutlinedIcon />
-                            </ListItemIcon>
                             <ListItemText primary="Coders" />
                             {coderView1 ? <ExpandLess /> : <ExpandMore />}
                         </ListItem>
@@ -233,9 +153,6 @@ export default function DrawerContent() {
                             {coders.map((item, index) => (
                                 <List style={{ paddingLeft: "40px" }} key={index} component="div" disablePadding>
                                     <ListItem key={index} button inset="true" className={classes.nested}>
-                                        <ListItemIcon>
-                                            <TurnedInNotIcon />
-                                        </ListItemIcon>
                                         <ListItemText primary={item} />
                                     </ListItem>
                                 </List>
@@ -246,28 +163,19 @@ export default function DrawerContent() {
 
                     <ListItem button onClick={diffOpen}
                     >
-                        <ListItemIcon>
-                            <AddCircleOutlineOutlinedIcon />
-                        </ListItemIcon>
                         <ListItemText primary="Diff Checkers" />
                         {diffView ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                     <Collapse in={diffView} timeout="auto" unmountOnExit>
-                        {converters.map((item, index) => (
+                        {checkers.map((item, index) => (
                             <List key={index} component="div" disablePadding>
                                 <ListItem key={index} button inset="true" className={classes.nested}>
-                                    <ListItemIcon>
-                                        <TurnedInNotIcon />
-                                    </ListItemIcon>
                                     <ListItemText primary={item} />
                                 </ListItem>
                             </List>
                         ))}
                     </Collapse>
                     <ListItem button onClick={coder2Open}>
-                        <ListItemIcon>
-                            <AddCircleOutlineOutlinedIcon />
-                        </ListItemIcon>
                         <ListItemText primary="Encoders & Decoders" />
                         {coderView2 ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
@@ -275,9 +183,6 @@ export default function DrawerContent() {
                         {coders.map((item, index) => (
                             <List key={index} component="div" disablePadding>
                                 <ListItem key={index} button inset="true" className={classes.nested}>
-                                    <ListItemIcon>
-                                        <TurnedInNotIcon />
-                                    </ListItemIcon>
                                     <ListItemText primary={item} />
                                 </ListItem>
                             </List>

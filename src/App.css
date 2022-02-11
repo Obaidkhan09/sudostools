@@ -38,4 +38,7 @@
 }
 .SidebarDrawer .MuiDrawer-paper {
   background-color: #F6F6F6;
-} 
+}
+.imgPaddingLeft {
+  padding-left: 16px !important;
+}

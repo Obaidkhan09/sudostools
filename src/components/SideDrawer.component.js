@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Box from '@mui/material/Box';
@@ -17,9 +17,32 @@ import "../App.css"
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 
-const drawerWidth = 240;
-
 export default function SideDrawer() {
+    
+    const drawerWidth = 240;
+    const [ mainHeading, setMainHeading] = useState();
+    const [ subHeading, setSubHeading] = useState();
+    const screenSize = () => {
+        if (window.innerWidth > 1200) {
+            setMainHeading("2.9991rem");
+            setSubHeading("2.02rem");
+            console.log(mainHeading);
+        }
+        else if (window.innerWidth > 600 && window.innerWidth < 1200) {
+            setMainHeading("2.784rem");
+            setSubHeading("1.9rem");
+            console.log(mainHeading);
+    
+        }
+        else if (window.innerWidth < 600) {
+            setMainHeading("2rem");
+            setSubHeading("1.565rem");
+            console.log(mainHeading);
+        }
+    }
+    
+    window.addEventListener('load', screenSize);
+    window.addEventListener('resize', screenSize);
 
     //const container = window !== undefined ? () => window().document.body : undefined;
 
@@ -36,7 +59,7 @@ export default function SideDrawer() {
                     fontFamily="Alata"
                     marginBottom="2rem"
                     marginTop="1.2rem"
-                    style={{ fontSize: "2.784rem", padding: "0px", margin: "0px" }}
+                    style={{ fontSize: `${mainHeading}`, padding: "0px", margin: "0px", marginBottom: "1.2rem", }}
                 >
                     Welcome to Sudo's Tools!
                 </Typography>
@@ -58,7 +81,7 @@ export default function SideDrawer() {
                     you enjoy using Sudo's Tools.
                 </Typography>
                 <Divider style={{ marginBottom: "27px" }} />
-                <Typography variant="h4" fontFamily="Alata" style={{ fontSize: "1.9rem", marginBottom: "0.5rem" }}>
+                <Typography variant="h4" fontFamily="Alata" style={{ fontSize: `${subHeading}`, marginBottom: "0.5rem" }}>
                     We'd love to know about your experience using Sudo's Tools
                 </Typography>
                 <Typography style={{
