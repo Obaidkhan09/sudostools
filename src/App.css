@@ -36,3 +36,6 @@
     transform: rotate(360deg);
   }
 }
+.SidebarDrawer .MuiDrawer-paper {
+  background-color: #F6F6F6;
+} 

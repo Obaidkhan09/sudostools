@@ -7,13 +7,11 @@ import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import CopyrightIcon from '@mui/icons-material/Copyright';
-import { Grid, List, ListItem } from "@mui/material";
 
 
 import DrawerContent from "./DrawerContent.component";
 import ReUseableHome from "./ResuableComp/ReUseableHome.component";
-import {formattersList, converters, checkers, coders} from './constants/Constants'
+import Footer from "./ResuableComp/Footer.component";
 
 import "../App.css"
 /** @jsxImportSource @emotion/react */
@@ -22,7 +20,7 @@ import { css } from '@emotion/react'
 const drawerWidth = 240;
 
 export default function SideDrawer() {
-    
+
     //const container = window !== undefined ? () => window().document.body : undefined;
 
 
@@ -77,88 +75,6 @@ export default function SideDrawer() {
             </div>
         </Box>
     )
-    const Footer = () => (
-        <div id="footer"
-            style={{
-                width: { sm: `calc(100% - ${drawerWidth}px)` }, 
-                marginTop: "280px",
-                backgroundColor: "#2A2A2A",
-                padding: "24px",
-                paddingLeft: "270px",
-                color: "white",
-                height: "55%",
-            }}>
-            <Grid container style={{
-                display: "flex",
-                justifyContent: "space-between",
-            }}>
-                <Grid item lg={3} md={4} sm={6} xs={12} style={{ paddingBottom: "0px" }}>
-                    <Typography variant="h4" fontFamily="Alata" style={{ marginBottom: "1.2rem" }}>
-                        Converters
-                    </Typography>
-                    <List>
-                        {converters.map((item, index) => (
-                            <ListItem key={index} style={{ fontSize: "1rem", padding: "0px", marginBottom: "5px" }}
-                                className="onHover"
-                            >
-                                {item}
-                            </ListItem>
-                        ))}
-                    </List>
-                </Grid>
-                <Grid item lg={3} md={4} sm={6} xs={12}>
-                    <Typography variant="h4" fontFamily="Alata" style={{ marginBottom: "1.2rem" }}>
-                        Formatters
-                    </Typography>
-                    <List>
-                        {formattersList.map((item, index) => (
-                            <ListItem key={index} style={{ fontSize: "1rem", padding: "0px", marginBottom: "5px" }}
-                                className="onHover"
-                            >
-                                {item}
-                            </ListItem>
-                        ))}
-                    </List>
-                </Grid>
-                <Grid item lg={3} md={4} sm={6} xs={12}>
-                    <Typography variant="h4" fontFamily="Alata" style={{ marginBottom: "1.2rem" }}>
-                        Diff Checkers
-                    </Typography>
-                    <List>
-                        {checkers.map((item, index) => (
-                            <ListItem key={index} style={{ fontSize: "1rem", padding: "0px", marginBottom: "5px" }}
-                                className="onHover"
-                            >
-                                {item}
-                            </ListItem>
-                        ))}
-                    </List>
-                </Grid>
-                <Grid item lg={3} md={4} sm={6} xs={12}>
-                    <Typography variant="h4" fontFamily="Alata" style={{ marginBottom: "1.2rem" }}>
-                        Encoder & Decoder
-                    </Typography>
-                    <List>
-                        {coders.map((item, index) => (
-                            <ListItem key={index} style={{ fontSize: "1rem", padding: "0px", marginBottom: "5px" }}
-                                className="onHover"
-                            >
-                                {item}
-                            </ListItem>
-                        ))}
-                    </List>
-                </Grid>
-                <Grid xs={12}>
-                    <Typography fontSize="0.75rem">
-                        <CopyrightIcon css={css`padding-top : 12px; margin-top : 15px;`} />
-                        Copyright 2020 Doubledrop, LLC{'\u00A0'}|{'\u00A0'}
-                        <a css={css`color: #f50057;`}>{'\u00A0'}Privacy Notice{'\u00A0'}</a>{'\u00A0'}|
-                        {'\u00A0'}<a css={css`color: #f50057;`}>{'\u00A0'}Cookie Policy{'\u00A0'}</a>
-                    </Typography>
-                </Grid>
-            </Grid>
-        </div>
-    )
 
     return (
         <>
@@ -170,6 +86,7 @@ export default function SideDrawer() {
                     aria-label="mailbox folders"
                 >
                     <Drawer
+                        className="SidebarDrawer"
                         variant="permanent"
                         sx={{
                             display: { xs: 'none', sm: 'block' },
@@ -184,11 +101,11 @@ export default function SideDrawer() {
                 </Box>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/sqlformatter" element={ <ReUseableHome heading="SQL Formatter" />} />
-                    <Route path="/jsonformatter" element={ <ReUseableHome heading="JSON Formatter" />} />
-                    <Route path="/xmlformatter" element={ <ReUseableHome heading="XML Formatter" />} />
-                    <Route path="/htmlformatter" element={ <ReUseableHome heading="HTML Formatter" />} />
-                    <Route path="/cssformatter" element={ <ReUseableHome heading="CSS Formatter" />} />
+                    <Route path="/sqlformatter" element={<ReUseableHome heading="SQL Formatter" />} />
+                    <Route path="/jsonformatter" element={<ReUseableHome heading="JSON Formatter" />} />
+                    <Route path="/xmlformatter" element={<ReUseableHome heading="XML Formatter" />} />
+                    <Route path="/htmlformatter" element={<ReUseableHome heading="HTML Formatter" />} />
+                    <Route path="/cssformatter" element={<ReUseableHome heading="CSS Formatter" />} />
                 </Routes>
             </Box>
             <Footer />
